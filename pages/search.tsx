@@ -45,7 +45,7 @@ const Search = ({ query }: any) => {
   return (
     <>
       <Filter />
-      <div className="result mt-10 md:mt-16">
+      <div className="result mt-10 md:mt-16 pb-10 md:pb-20">
         <div className="mx-auto max-w-[1220px] w-full px-5  sm:px-10">
           {!loading ? (
             data?.success ? (
@@ -57,7 +57,15 @@ const Search = ({ query }: any) => {
                         key={city}
                         className="flex flex-col items-center w-5 -mx-1 relative z-[1]"
                       >
-                        <p className="text-sm md:text-base tracking-wide font-medium text-gray-600 whitespace-nowrap">
+                        <p
+                          className={`${
+                            i == 0
+                              ? "self-baseline"
+                              : i === CityList.length - 1
+                              ? "self-end"
+                              : ""
+                          } text-sm md:text-base tracking-wide font-medium text-gray-600 whitespace-nowrap`}
+                        >
                           {city}
                         </p>
                         <FontAwesomeIcon
@@ -87,9 +95,12 @@ const Search = ({ query }: any) => {
                   ))}
                 </ul>
 
-                <div className="text-xl md:text-2xl lg:text-3xl text-center mt-10 lg:mt-24 font-md tracking-wide">
+                <div className="text-xl md:text-2xl lg:text-3xl text-center mt-10 lg:mt-20 font-md tracking-wide">
                   Total Distance:{" "}
-                  {data?.distances?.reduce((a, b) => a + b, 0).toFixed(2)} KM
+                  <span className="text-gray-600">
+                    {" "}
+                    {data?.distances?.reduce((a, b) => a + b, 0).toFixed(2)} KM
+                  </span>
                 </div>
               </>
             ) : (
