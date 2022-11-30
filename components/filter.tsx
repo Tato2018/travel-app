@@ -38,7 +38,6 @@ const Filter = () => {
   const [showCalendar, setShowCalendar] = useState(false);
   const router = useRouter();
   const isMount = useIsMounted();
-  const isSearch = router.pathname.includes("search");
   const [dateValue, onChange] = useState<Date>(
     !!router.query.date ? new Date(router.query.date + "") : new Date()
   );

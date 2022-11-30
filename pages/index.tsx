@@ -1,5 +1,4 @@
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 import BottomInfo from "../components/bottomInfo";
 import Filter from "../components/filter";
